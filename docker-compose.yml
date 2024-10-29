@@ -1,0 +1,45 @@
+version: '3.9'
+name: 'saude-pet'
+services:
+  app:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - PHP_MEMORY_LIMIT=512M
+    networks:
+      - saude_pet_network
+
+  web:
+    image: nginx:latest
+    depends_on:
+      - app
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "8000:80"
+    networks:
+      - saude_pet_network
+
+  db:
+    image: postgres:16.4
+    environment:
+      - POSTGRES_DB=saude_pet
+      - POSTGRES_USER=saude_pet
+      - POSTGRES_PASSWORD=saude_pet
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "54321:5432"
+    networks:
+      - saude_pet_network
+
+networks:
+  saude_pet_network:
+
+volumes:
+  pgdata:
