@@ -27,8 +27,16 @@
           <td>{{ $loop->iteration }}</td>
           <td>{{ $pet->nome }}</td>
           <td>{{ $pet->nascimento }}</td>
-          <td>{{ $pet->flg_castrado }}</td>
-          <td>-</td>
+          <td>{{ $pet->flg_castrado ? 'Sim' : 'Não' }}</td>
+          <td>
+            <a href="{{ route('pets.show', $pet->id) }}">Ver</a> |
+            <a href="{{ route('pets.edit', $pet->id) }}">Editar</a> |
+            <form action="{{ route('pets.destroy', $pet->id) }}" method="post" style="display:inline;">
+              @csrf
+              @method('DELETE')
+              <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este pet?')">Excluir</button>
+            </form>
+          </td>
         </tr>
       @empty
         <tr>

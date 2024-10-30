@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pet;
-use Illuminate\Http\Request;
+use App\Http\Requests\PetRequest;
 
 class PetController extends Controller
 {
@@ -29,9 +29,9 @@ class PetController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PetRequest $request)
     {
-        Pet::create($request->all());
+        Pet::create($request->validated());
         return redirect()->route('pets.index');
     }
 
@@ -40,7 +40,7 @@ class PetController extends Controller
      */
     public function show(Pet $pet)
     {
-        //
+        return view('pets.show', compact('pet'));
     }
 
     /**
@@ -48,15 +48,16 @@ class PetController extends Controller
      */
     public function edit(Pet $pet)
     {
-        //
+        return view('pets.edit', compact('pet'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pet $pet)
+    public function update(PetRequest $request, Pet $pet)
     {
-        //
+        $pet->update($request->validated());
+        return redirect()->route('pets.index')->with('success', 'Pet atualizado com sucesso!');
     }
 
     /**
@@ -64,6 +65,7 @@ class PetController extends Controller
      */
     public function destroy(Pet $pet)
     {
-        //
+        $pet->delete();
+        return redirect()->route('pets.index')->with('success', 'Pet excluído com sucesso!');
     }
 }
