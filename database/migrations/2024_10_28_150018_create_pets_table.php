@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome', 100);
             $table->date('nascimento')->nullable();
-            $table->boolean('flg_castrado')->default(false); ;
+            $table->boolean('flg_castrado')->default(false);
             $table->timestamps();
         });
     }
