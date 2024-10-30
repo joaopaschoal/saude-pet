@@ -14,7 +14,6 @@ class PetController extends Controller
     {
         // $pets = Pet::all();
         $pets = Pet::paginate(10);
-
         return view('pets.index', compact('pets'));
     }
 
@@ -32,7 +31,7 @@ class PetController extends Controller
     public function store(PetRequest $request)
     {
         Pet::create($request->validated());
-        return redirect()->route('pets.index');
+        return redirect()->route('pets.index')->with('success', 'Pet cadastrado com sucesso.');
     }
 
     /**

@@ -1,9 +1,21 @@
 .lista-erros {
-    display: inline-block;
+    display: block;
     background-color: #ffe6e6;
     border: 1px solid #ff4d4d;
     color: #b30000;
     padding: 12px 30px;
     border-radius: 5px;
     margin-top: 10px;
+    width: fit-content;
+}
+
+.lista-success {
+    display: block;
+    background-color: #b6fbc1;
+    border: 1px solid #176635;
+    color: #08621c;
+    padding: 12px 30px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: fit-content;
 }

@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="pt">
+@extends('layouts.app')
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pets</title>
-</head>
+@section('title', 'Pets Cadastrados')
+@section('header', 'Pets Cadastrados')
 
-<body>
-  <h1>Pets</h1>
+@section('content')
+  @if (session()->has('success'))
+    <div class="lista-success">
+      {{ session('success') }}
+    </div>
+    <br /><br />
+  @endif
   <a href="{{ route('pets.create') }}">Cadastrar Pet</a>
+  <br />
   <table>
     <thead>
       <tr>
@@ -46,6 +47,4 @@
     </tbody>
   </table>
   {{ $pets->links() }}
-</body>
-
-</html>
+@endsection

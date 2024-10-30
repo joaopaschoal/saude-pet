@@ -27,7 +27,6 @@
 <br /><br />
 <a href="{{ route('pets.index') }}">Voltar para a listagem</a>
 @isset($pet)
- |
 <form action="{{ route('pets.destroy', $pet->id) }}" method="post" style="display:inline;"> |
   @csrf()
   @method('DELETE')
