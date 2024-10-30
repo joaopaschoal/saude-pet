@@ -1,3 +1,11 @@
+@if ($errors->any())
+  <ul class="lista-erros">
+    @foreach ($errors->all() as $erro)
+      <li>{{ $erro }}</li>
+    @endforeach
+  </ul>
+@endif
+
 <form action="{{ $action }}" method="POST">
   @csrf
   @isset($method) @method($method) @endisset
