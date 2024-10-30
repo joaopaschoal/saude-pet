@@ -4,12 +4,6 @@
 @section('header', 'Pets Cadastrados')
 
 @section('content')
-  @if (session()->has('success'))
-    <div class="lista-success">
-      {{ session('success') }}
-    </div>
-    <br /><br />
-  @endif
   <a href="{{ route('pets.create') }}">Cadastrar Pet</a>
   <br />
   <table>

@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt">
+@extends('layouts.app')
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Detalhes do Pet</title>
-</head>
+@section('header', 'Dados do Pet')
+@section('title', 'Dados do Pet')
 
-<body>
+
+@section('content')
+
   <h1>Detalhes do Pet</h1>
   <p><strong>Nome:</strong> {{ $pet->nome }}</p>
   <p><strong>Nascimento:</strong> {{ $pet->nascimento }}</p>
@@ -21,3 +18,5 @@
     @method('DELETE')
     <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este pet?')">Excluir</button>
   </form>
+
+@endsection

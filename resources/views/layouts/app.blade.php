@@ -12,6 +12,7 @@
 <body>
     <header>
         <h1>@yield('header')</h1>
+        <x-message-box />
     </header>
 
     <main>
