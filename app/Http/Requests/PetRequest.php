@@ -38,4 +38,15 @@ class PetRequest extends FormRequest
             'flg_castrado' => $this->has('flg_castrado') ? true : false,
         ]);
     }
+
+    public function messages(): array
+    {
+        return [
+            'nome.required' => 'O nome é obrigatório.',
+            'nome.string' => 'O nome deve ser uma string.',
+            'nome.max' => 'O nome não pode ter mais de :max caracteres.',
+            'nascimento.date' => 'A data de nascimento deve ser uma data válida.',
+            'flg_castrado.boolean' => 'O campo castrado deve ser verdadeiro ou falso.',
+        ];
+    }
 }
