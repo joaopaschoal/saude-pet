@@ -6,17 +6,24 @@
 
 @section('content')
 
-  <h1>Detalhes do Pet</h1>
-  <p><strong>Nome:</strong> {{ $pet->nome }}</p>
-  <p><strong>Nascimento:</strong> {{ $pet->nascimento }}</p>
-  <p><strong>Castrado:</strong> {{ $pet->flg_castrado ? 'Sim' : 'Não' }}</p>
+    <h1>Detalhes do Pet</h1>
+    <p><strong>Nome:</strong> {{ $pet->nome }}</p>
+    <p><strong>Nascimento:</strong> {{ $pet->nascimento }}</p>
+    <p><strong>Castrado:</strong> {{ $pet->flg_castrado ? 'Sim' : 'Não' }}</p>
 
-  <a href="{{ route('pets.index') }}">Voltar para a listagem</a> |
-  <a href="{{ route('pets.edit', $pet->id) }}">Editar</a> |
-  <form action="{{ route('pets.destroy', $pet->id) }}" method="post" style="display:inline;">
-    @csrf
-    @method('DELETE')
-    <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este pet?')">Excluir</button>
-  </form>
+    <hr>
+
+    <a href="{{ route('pets.index') }}" class="btn btn-primary">
+        <span class="bi bi-arrow-left"></span> Voltar
+    </a>
+    <a href="{{ route('pets.edit', $pet->id) }}" class="btn btn-warning">
+        <span class="bi bi-pencil"></span> Editar
+    </a>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal{{ $pet->id }}">
+        <span class="bi bi-trash"></span> Excluir
+    </button>
+    <x-confirm-delete :model="$pet" route="pets.destroy" message="Tem certeza que deseja excluir este pet?" />
+
 
 @endsection
+
