@@ -22,6 +22,7 @@ class PetRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => 'integer',
             'nome' => 'required|string|max:100',
             'nascimento' => 'nullable|date',
             'flg_castrado' => 'boolean',
