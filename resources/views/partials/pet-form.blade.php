@@ -12,7 +12,7 @@
         @method($method)
     @endisset
 
-    <div class="mb-3">
+    <div class="mb-3 max-w-800">
         <label for="ipt-nome" class="form-label">Nome:</label>
         <input type="text" id="ipt-nome" name="nome" value="{{ old('nome', $pet->nome ?? '') }}"
             class="form-control">
