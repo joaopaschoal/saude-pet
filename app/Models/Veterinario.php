@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Pet extends Model
+class Veterinario extends Model
 {
-    /** @use HasFactory<\Database\Factories\PetFactory> */
+    /** @use HasFactory<\Database\Factories\VeterinarioFactory> */
     use HasFactory, SoftDeletes;
+
     protected $fillable = [
+        'crmv',
         'nome',
         'nascimento',
-        'flg_castrado',
+        'especialidade',
     ];
-    protected $table = 'pets';
+    protected $table = 'veterinarios';
 }
