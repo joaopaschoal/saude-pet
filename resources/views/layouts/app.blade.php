@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <x-toast />
     <div class="app-container d-flex">
         <div id="sidebar" class="sidebar d-flex flex-column">
             <h4 class="menu-title pt-4 pb-0 mb-0">
@@ -53,7 +54,6 @@
             </header>
 
             <main class="container p-4 flex-grow-1">
-                <x-message-box />
                 @yield('content')
             </main>
         </div>

@@ -1,0 +1,15 @@
+.w-80p {
+    width: 80%;
+}
+.max-w-200 {
+    max-width: 200px;
+}
+.max-w-400 {
+    max-width: 400px;
+}
+.max-w-800 {
+    max-width: 800px;
+}
+.text-red {
+    color: #d50000;
+}

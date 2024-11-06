@@ -10,11 +10,17 @@
                 {{ $message }}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <span class="bi bi-x me-1"></span>
+                    Cancelar
+                </button>
                 <form action="{{ route($route, $model->id) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    <button type="submit" class="btn btn-danger">
+                        <span class="bi bi-trash me-1"></span>
+                        Excluir
+                    </button>
                 </form>
             </div>
         </div>

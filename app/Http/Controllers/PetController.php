@@ -31,7 +31,12 @@ class PetController extends Controller
     public function store(PetRequest $request)
     {
         Pet::create($request->validated());
-        return redirect()->route('pets.index')->with('success', 'Pet cadastrado com sucesso.');
+        return redirect()->route('pets.index')->with('toast', [
+            [
+                'message' => 'Pet cadastrado com sucesso.',
+                'type' => 'success'
+            ]
+        ]);
     }
 
     /**
@@ -56,7 +61,11 @@ class PetController extends Controller
     public function update(PetRequest $request, Pet $pet)
     {
         $pet->update($request->validated());
-        return redirect()->route('pets.index')->with('success', 'Pet atualizado com sucesso!');
+        return redirect()->route('pets.index')->with('toast', [
+            'message' => 'Pet atualizado com sucesso.',
+            'type' => 'success'
+        ]);
+
     }
 
     /**
@@ -65,6 +74,9 @@ class PetController extends Controller
     public function destroy(Pet $pet)
     {
         $pet->delete();
-        return redirect()->route('pets.index')->with('success', 'Pet excluído com sucesso!');
+        return redirect()->route('pets.index')->with('toast', [
+            'message' => 'Pet excluído com sucesso.',
+            'type' => 'success'
+        ]);
     }
 }

@@ -1,67 +1,14 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "bootstrap-icons/font/bootstrap-icons.css";
+@import "./theme.css";
+@import "./buttons.css";
+@import "./msg-box.css";
+@import "./utilities.css";
 
-/* Variáveis de cor */
-:root {
-    /* --primary-color: #007bff; */
-    --primary-color: #bd1a1a;
-    --secondary-color: #6c757d;
-    --background-color: #f8f9fa;
-    --sidebar-bg-color: #343a40;
-    --sidebar-text-color: #fff;
-    --header-bg-color: var(--apptheme-color);
-    --header-text-color: #fff;
-
-    /* Tema 01 */
-    --apptheme-color: #024791;
-    --apptheme-hover-color: #023a75;
-    --apptheme-active-color: #012d5a;
-    --apptheme-border-color: #012d5a;
-    --apptheme-focus-shadow: rgba(2, 71, 145, 0.5);
-    --apptheme-text-color: #fff;
-    --apptheme-text-hover-color: #eee;
-    --apptheme-disabled-bg: #b0c4de;
-    --apptheme-disabled-text: #f0f8ff;
-
-    /* Tema 02 */
-    /* --apptheme-color: #850a0a;
-    --apptheme-hover-color: #6f0808;
-    --apptheme-active-color: #5a0606;
-    --apptheme-border-color: #5a0606;
-    --apptheme-focus-shadow: rgba(133, 10, 10, 0.5);
-    --apptheme-text-color: #fff;
-    --apptheme-text-hover-color: #f3f3f3;
-    --apptheme-disabled-bg: #d8a2a2;
-    --apptheme-disabled-text: #f9e8e8; */
-
+/* Estilos gerais do app */
+.table {
+    text-align: center;
 }
-
-/* Estilo base para o botão */
-.btn-apptheme {
-    background-color: var(--apptheme-color);
-    color: var(--apptheme-text-color);
-    border-color: var(--apptheme-border-color);
-    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
-}
-.btn-apptheme:hover, .btn-apptheme:focus-visible {
-    background-color: var(--apptheme-hover-color);
-    border-color: var(--apptheme-border-color);
-    color: var(--apptheme-text-hover-color);
-}
-.btn-apptheme:active, .btn-apptheme.show {
-    background-color: var(--apptheme-active-color);
-    border-color: var(--apptheme-border-color);
-}
-.btn-apptheme:focus {
-    box-shadow: 0 0 0 0.25rem var(--apptheme-focus-shadow);
-}
-.btn-apptheme:disabled, .btn-apptheme[disabled] {
-    background-color: var(--apptheme-disabled-bg);
-    color: var(--apptheme-disabled-text);
-    border-color: var(--apptheme-disabled-bg);
-    opacity: 0.65;
-}
-
 
 /* Estilos do layout */
 body {
@@ -101,7 +48,7 @@ main.container {
 }
 
 .sidebar a:hover {
-    background-color: var(--primary-color);
+    background-color: var(--app-tertiary-color);
     color: #fff;
 }
 
@@ -140,6 +87,14 @@ main.container {
     width: 38px;
 }
 
+.hamburger-btn {
+    /* display: none; */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--header-text-color);
+}
+
 .content {
     flex-grow: 1;
     overflow-y: auto;
@@ -173,37 +128,4 @@ main.container {
     .header .hamburger-btn {
         display: inline;
     }
-}
-
-.hamburger-btn {
-    /* display: none; */
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--header-text-color);
-}
-
-/* Tabelas */
-.table {
-    text-align: center;
-}
-
-/* Lista Erros */
-.lista-erros {
-    color: #d50000;
-}
-
-
-/* helpers */
-.w-80p {
-    width: 80%;
-}
-.max-w-200 {
-    max-width: 200px;
-}
-.max-w-400 {
-    max-width: 400px;
-}
-.max-w-800 {
-    max-width: 800px;
 }

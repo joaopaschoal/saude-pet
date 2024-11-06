@@ -29,15 +29,14 @@
             {{ old('flg_castrado', $pet->flg_castrado ?? false) ? 'checked' : '' }} class="form-check-input">
         <label for="chk-castrado" class="form-check-label">Animal castrado</label>
     </div>
-
-    <button type="submit" class="btn btn-apptheme">
-        <span class="bi bi-floppy me-1"></span>
-        {{ $buttonText }}
-    </button>
 </form>
 
 <hr>
 
-<a href="{{ route('pets.index') }}" class="btn btn-primary">
+<a href="{{ route('pets.index') }}" class="btn btn-secondary">
     <span class="bi bi-arrow-left"></span> Voltar
 </a>
+<button type="submit" class="btn btn-success">
+    <span class="bi bi-floppy me-1"></span>
+    {{ $buttonText }}
+</button>
