@@ -7,3 +7,4 @@ Route::get('/', function () {
 });
 
 Route::resource('pets', App\Http\Controllers\PetController::class);
+Route::resource('veterinarios', App\Http\Controllers\VeterinarioController::class);
