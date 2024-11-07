@@ -21,13 +21,18 @@ class VeterinarioRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'id' => 'integer',
-            'crmv' => 'unique|string|max:20',
+        $rules = [
+            'crmv' => 'required|string|max:20|unique:veterinarios,crmv' . ($this->id ? ',' . $this->id : ''),
             'nome' => 'required|string|max:100',
             'nascimento' => 'nullable|date',
-            'especialidade' => 'string|max:100',
+            'especialidade' => 'nullable|string|max:100',
         ];
+    
+        if ($this->isMethod('put') || $this->isMethod('patch')) {
+            $rules['id'] = 'required|integer|exists:veterinarios,id';
+        }
+    
+        return $rules;
     }
 
     public function messages(): array

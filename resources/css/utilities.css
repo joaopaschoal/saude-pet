@@ -13,3 +13,10 @@
 .text-red {
     color: #d50000;
 }
+
+.required::after {
+    content: '*';
+    color: red;
+    /* font-weight: bold; */
+    margin-left: 5px;
+}

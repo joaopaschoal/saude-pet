@@ -17,9 +17,10 @@
         <thead>
             <tr class="table-dark">
                 <th>#</th>
+                <th>CRMV</th>
                 <th>Nome</th>
                 <th>Nascimento</th>
-                <th>Castrado</th>
+                <th>Especialidade</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -27,9 +28,10 @@
             @forelse ($veterinarios as $veterinario)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    <td>{{ $veterinario->crmv }}</td>
                     <td>{{ $veterinario->nome }}</td>
                     <td>{{ Carbon::parse($veterinario->nascimento)->format('d/m/Y') }}</td>
-                    <td>{{ $veterinario->flg_castrado ? 'Sim' : 'Não' }}</td>
+                    <td>{{ $veterinario->especialidade }}</td>
                     <td>
                         <a href="{{ route('veterinarios.show', $veterinario->id) }}" class="btn btn-sm btn-primary">
                             <span class="bi bi-eye"></span>

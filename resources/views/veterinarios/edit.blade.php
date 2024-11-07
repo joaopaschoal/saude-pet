@@ -4,7 +4,7 @@
 @section('header', 'Editar Veterinário')
 
 @section('content')
-  @include('partials.veterinario-form', [
+  @include('veterinarios.partials.veterinario-form', [
     'action' => route('veterinarios.update', $veterinario->id),
     'method' => 'PUT',
     'buttonText' => 'Atualizar',

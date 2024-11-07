@@ -20,7 +20,11 @@ class VeterinarioFactory extends Factory
             'crmv' => str_pad(fake()->numberBetween(0, 99999), 5, '0', STR_PAD_LEFT),
             'nome' => fake()->name(),
             'nascimento' => fake()->optional()->date(),
-            'especialidade' => fake()->text()
+            'especialidade' => fake()->randomElement([
+                'Pequenos animais',
+                'Grandes animais',
+                'Animais exóticos',
+            ]),
         ];
     }
 }

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreVeterinarioRequest;
-use App\Http\Requests\UpdateVeterinarioRequest;
+use App\Http\Requests\VeterinarioRequest;
 use App\Models\Veterinario;
 
 class VeterinarioController extends Controller
@@ -13,7 +12,7 @@ class VeterinarioController extends Controller
      */
     public function index()
     {
-        $veterinarios = Veterinario::all();
+        $veterinarios = Veterinario::paginate(10);
         return view('veterinarios.index', compact('veterinarios'));
     }
 
@@ -22,13 +21,19 @@ class VeterinarioController extends Controller
      */
     public function create()
     {
-        return view('veterinarios.create');
+        // TODO: converter em entidade e puxar do BD:
+        $especialidadeList = [
+            'Pequenos animais',
+            'Grandes animais',
+            'Animais exóticos',
+        ];
+        return view('veterinarios.create', compact('especialidadeList'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreVeterinarioRequest $request)
+    public function store(VeterinarioRequest $request)
     {
         Veterinario::create($request->validated());
         return redirect()->route('veterinarios.index')->with('toast', [
@@ -52,13 +57,19 @@ class VeterinarioController extends Controller
      */
     public function edit(Veterinario $veterinario)
     {
-        return view('veterinarios.edit', compact('veterinario'));
+        // TODO: converter em entidade e puxar do BD:
+        $especialidadeList = [
+            'Pequenos animais',
+            'Grandes animais',
+            'Animais exóticos',
+        ];
+        return view('veterinarios.edit', compact('veterinario', 'especialidadeList'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateVeterinarioRequest $request, Veterinario $veterinario)
+    public function update(VeterinarioRequest $request, Veterinario $veterinario)
     {
         $veterinario->update($request->validated());
         return redirect()->route('veterinarios.index')->with('toast', [

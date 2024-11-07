@@ -4,7 +4,7 @@
 @section('header', 'Editar Pet')
 
 @section('content')
-  @include('partials.pet-form', [
+  @include('pets.partials.pet-form', [
     'action' => route('pets.update', $pet->id),
     'method' => 'PUT',
     'buttonText' => 'Atualizar',

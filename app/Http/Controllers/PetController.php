@@ -12,7 +12,7 @@ class PetController extends Controller
      */
     public function index()
     {
-        $pets = Pet::all();
+        $pets = Pet::paginate(10);
         return view('pets.index', compact('pets'));
     }
 
