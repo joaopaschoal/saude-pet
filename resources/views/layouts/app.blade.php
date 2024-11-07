@@ -24,9 +24,15 @@
                 <hr>
             </div>
             <nav class="nav flex-column">
-                <a class="nav-link" href="#">
-                    <span class="icon"><i class="bi bi-house"></i></span>
-                    <span class="text">Dashboard</span>
+                <a class="nav-link" href="{{ route('pets.index') }}">
+                    <span class="icon">
+                        @include('partials.svg.pet')
+                    </span>
+                    <span class="text">Pets</span>
+                </a>
+                <a class="nav-link" href="{{ route('veterinarios.index') }}">
+                    <span class="icon"><i class="bi bi-person-fill"></i></span>
+                    <span class="text">Veterinários</span>
                 </a>
                 <a class="nav-link" href="#">
                     <span class="icon"><i class="bi bi-gear"></i></span>
