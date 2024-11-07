@@ -35,15 +35,13 @@
         <select id="slc-especialidade" name="especialidade" class="form-select">
             <option value="">Selecione...</option>
             @foreach ($especialidadeList as $especialidade)
-                <option value="{{ $especialidade }}">{{ $especialidade }}</option>
-                {{ old('especialidade', isset($veterinario) ? $veterinario->especialidade : '') == $especialidade ? 'selected' : '' }}
-
+                <option value="{{ $especialidade }}" {{ old('especialidade', isset($veterinario) ? $veterinario->especialidade : '') === $especialidade ? 'selected' : '' }}>{{ $especialidade }}</option>
             @endforeach
         </select>
     </div>
 
     <hr>
-    
+
     <a href="{{ route('veterinarios.index') }}" class="btn btn-secondary">
         <span class="bi bi-arrow-left"></span> Voltar
     </a>
