@@ -21,17 +21,11 @@ class PetRequest extends FormRequest
      */
     public function rules(): array
     {
-        $rules = [
+        return [
             'nome' => 'required|string|max:100',
             'nascimento' => 'nullable|date',
             'flg_castrado' => 'nullable|boolean',
         ];
-
-        if ($this->isMethod('put') || $this->isMethod('patch')) {
-            $rules['id'] = 'required|integer|exists:veterinarios,id';
-        }
-
-        return $rules;
     }
 
     /**
@@ -43,16 +37,5 @@ class PetRequest extends FormRequest
         $this->merge([
             'flg_castrado' => $this->has('flg_castrado') ? true : false,
         ]);
-    }
-
-    public function messages(): array
-    {
-        return [
-            'nome.required' => 'O nome é obrigatório.',
-            'nome.string' => 'O nome deve ser uma string.',
-            'nome.max' => 'O nome não pode ter mais de :max caracteres.',
-            'nascimento.date' => 'A data de nascimento deve ser uma data válida.',
-            'flg_castrado.boolean' => 'O campo castrado deve ser verdadeiro ou falso.',
-        ];
     }
 }
