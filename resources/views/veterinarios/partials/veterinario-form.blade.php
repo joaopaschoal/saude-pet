@@ -1,3 +1,8 @@
+@php
+    use \Carbon\Carbon;
+@endphp
+
+
 @if ($errors->any())
     <ul class="text-red">
         @foreach ($errors->all() as $erro)
@@ -26,8 +31,8 @@
 
     <div class="mb-3 max-w-200">
         <label for="ipt-nascimento" class="form-label">Nascimento:</label>
-        <input type="date" id="ipt-nascimento" name="nascimento"
-            value="{{ old('nascimento', $veterinario->nascimento ?? '') }}" class="form-control">
+        <input type="date" id="ipt-nascimento" name="nascimento" class="form-control"
+                value="{{ old('nascimento', isset($veterinario) ? Carbon::parse($veterinario->nascimento)->format('Y-m-d') : '') }}">
     </div>
 
     <div class="mb-3 max-w-200">
