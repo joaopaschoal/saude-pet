@@ -26,7 +26,7 @@
     <div class="mb-3 max-w-200">
         <label for="ipt-nascimento" class="form-label">Nascimento:</label>
         <input type="date" id="ipt-nascimento" name="nascimento" class="form-control"
-                value="{{ old('nascimento', isset($pet) ? Carbon::parse($pet->nascimento)->format('Y-m-d') : '') }}">
+                value="{{ old('nascimento', isset($pet->nascimento) ? Carbon::parse($pet->nascimento)->format('Y-m-d') : '') }}">
     </div>
 
     <div class="mb-3 form-check">

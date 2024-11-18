@@ -7,5 +7,6 @@
   @include('veterinarios.partials.veterinario-form', [
     'action' => route('veterinarios.store'),
     'buttonText' => 'Salvar',
+    'especialidadeList' => $especialidadeList,
   ])
 @endsection

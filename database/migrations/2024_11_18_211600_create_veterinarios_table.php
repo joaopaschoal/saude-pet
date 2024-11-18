@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('veterinarios', function (Blueprint $table) {
+        Schema::create('veterinario', function (Blueprint $table) {
             $table->id();
             $table->string('crmv', 20);
             $table->string('nome', 100);
             $table->date('nascimento')->nullable();
-            $table->string('especialidade', 100);
+            $table->foreignId('especialidade_id')->constrained('especialidade', 'id')->onDelete('restrict');
             $table->softDeletes();
             $table->timestamps();
         });

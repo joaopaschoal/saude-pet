@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\VeterinarioRequest;
+use App\Models\Especialidade;
 use App\Models\Veterinario;
 
 class VeterinarioController extends Controller
@@ -21,12 +22,7 @@ class VeterinarioController extends Controller
      */
     public function create()
     {
-        // TODO: converter em entidade e puxar do BD:
-        $especialidadeList = [
-            'Pequenos animais',
-            'Grandes animais',
-            'Animais exóticos',
-        ];
+        $especialidadeList = Especialidade::all();
         return view('veterinarios.create', compact('especialidadeList'));
     }
 
@@ -57,12 +53,7 @@ class VeterinarioController extends Controller
      */
     public function edit(Veterinario $veterinario)
     {
-        // TODO: converter em entidade e puxar do BD:
-        $especialidadeList = [
-            'Pequenos animais',
-            'Grandes animais',
-            'Animais exóticos',
-        ];
+        $especialidadeList = Especialidade::all();
         return view('veterinarios.edit', compact('veterinario', 'especialidadeList'));
     }
 

@@ -30,8 +30,8 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $veterinario->crmv }}</td>
                     <td>{{ $veterinario->nome }}</td>
-                    <td>{{ Carbon::parse($veterinario->nascimento)->format('d/m/Y') }}</td>
-                    <td>{{ $veterinario->especialidade }}</td>
+                    <td>{{ $veterinario->nascimento ? Carbon::parse($veterinario->nascimento)->format('d/m/Y') : '-' }}</td>
+                    <td>{{ $veterinario->especialidade->nome }}</td>
                     <td>
                         <a href="{{ route('veterinarios.show', $veterinario->id) }}" class="btn btn-sm btn-primary">
                             <span class="bi bi-eye"></span>

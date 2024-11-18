@@ -28,7 +28,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $pet->nome }}</td>
-                    <td>{{ Carbon::parse($pet->nascimento)->format('d/m/Y') }}</td>
+                    <td>{{ $pet->nascimento ? Carbon::parse($pet->nascimento)->format('d/m/Y') : '-' }}</td>
                     <td>{{ $pet->flg_castrado ? 'Sim' : 'Não' }}</td>
                     <td>
                         <a href="{{ route('pets.show', $pet->id) }}" class="btn btn-sm btn-primary">

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Especialidade;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Veterinario>
@@ -20,11 +21,7 @@ class VeterinarioFactory extends Factory
             'crmv' => str_pad(fake()->numberBetween(0, 99999), 5, '0', STR_PAD_LEFT),
             'nome' => fake()->name(),
             'nascimento' => fake()->optional()->date(),
-            'especialidade' => fake()->randomElement([
-                'Pequenos animais',
-                'Grandes animais',
-                'Animais exóticos',
-            ]),
+            'especialidade_id' => Especialidade::inRandomOrder()->first()->id,
         ];
     }
 }

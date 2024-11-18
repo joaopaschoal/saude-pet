@@ -32,15 +32,18 @@
     <div class="mb-3 max-w-200">
         <label for="ipt-nascimento" class="form-label">Nascimento:</label>
         <input type="date" id="ipt-nascimento" name="nascimento" class="form-control"
-                value="{{ old('nascimento', isset($veterinario) ? Carbon::parse($veterinario->nascimento)->format('Y-m-d') : '') }}">
+                value="{{ old('nascimento', isset($veterinario->nascimento) ? Carbon::parse($veterinario->nascimento)->format('Y-m-d') : '') }}">
     </div>
 
     <div class="mb-3 max-w-200">
         <label for="slc-especialidade" class="form-label required">Especialidade:</label>
-        <select id="slc-especialidade" name="especialidade" class="form-select">
+        <select id="slc-especialidade" name="especialidade_id" class="form-select">
             <option value="">Selecione...</option>
             @foreach ($especialidadeList as $especialidade)
-                <option value="{{ $especialidade }}" {{ old('especialidade', isset($veterinario) ? $veterinario->especialidade : '') === $especialidade ? 'selected' : '' }}>{{ $especialidade }}</option>
+                <option value="{{ $especialidade->id }}"
+                            {{ old('especialidade_id', isset($veterinario) ? $veterinario->especialidade->id : '') === $especialidade->id ? 'selected' : '' }}>
+                    {{ $especialidade->nome }}
+                </option>
             @endforeach
         </select>
     </div>

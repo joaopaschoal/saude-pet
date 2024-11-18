@@ -15,5 +15,5 @@ class Pet extends Model
         'nascimento',
         'flg_castrado',
     ];
-    protected $table = 'pets';
+    protected $table = 'pet';
 }

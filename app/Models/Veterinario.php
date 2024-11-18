@@ -15,7 +15,12 @@ class Veterinario extends Model
         'crmv',
         'nome',
         'nascimento',
-        'especialidade',
+        'especialidade_id',
     ];
-    protected $table = 'veterinarios';
+
+    protected function especialidade() {
+        return $this->belongsTo(Especialidade::class);
+    }
+
+    protected $table = 'veterinario';
 }

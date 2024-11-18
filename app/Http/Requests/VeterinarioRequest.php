@@ -22,10 +22,10 @@ class VeterinarioRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'crmv' => 'required|string|max:20|unique:veterinarios,crmv' . (isset($this->veterinario) ? ',' . $this->veterinario->id : ''),
+            'crmv' => 'required|string|max:20|unique:veterinario,crmv' . (isset($this->veterinario) ? ',' . $this->veterinario->id : ''),
             'nome' => 'required|string|max:100',
             'nascimento' => 'nullable|date',
-            'especialidade' => 'nullable|string|max:100',
+            'especialidade_id' => 'required|exists:especialidade,id',
         ];
     }
 }
