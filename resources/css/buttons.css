@@ -1,0 +1,37 @@
+:root {
+    --app-btn-color: var(--app-primary-color);
+    --app-btn-hover-color: #023a75;
+    --app-btn-active-color: #012d5a;
+    --app-btn-border-color: #012d5a;
+    --app-btn-focus-shadow: rgba(2, 71, 145, 0.5);
+    --app-btn-text-color: #fff;
+    --app-btn-text-hover-color: #eee;
+    --app-btn-disabled-bg: #b0c4de;
+    --app-btn-disabled-text: #f0f8ff;
+}
+
+/* Estilo base para o botão */
+.btn-apptheme {
+    background-color: var(--app-btn-color);
+    color: var(--app-btn-text-color);
+    border-color: var(--app-btn-border-color);
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.btn-apptheme:hover, .btn-apptheme:focus-visible {
+    background-color: var(--app-btn-hover-color);
+    border-color: var(--app-btn-border-color);
+    color: var(--app-btn-text-hover-color);
+}
+.btn-apptheme:active, .btn-apptheme.show {
+    background-color: var(--app-btn-active-color);
+    border-color: var(--app-btn-border-color);
+}
+.btn-apptheme:focus {
+    box-shadow: 0 0 0 0.25rem var(--app-btn-focus-shadow);
+}
+.btn-apptheme:disabled, .btn-apptheme[disabled] {
+    background-color: var(--app-btn-disabled-bg);
+    color: var(--app-btn-disabled-text);
+    border-color: var(--app-btn-disabled-bg);
+    opacity: 0.65;
+}
