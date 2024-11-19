@@ -42,7 +42,7 @@ main.container {
 .sidebar a {
     color: var(--sidebar-text-color);
     text-decoration: none;
-    padding: 10px 20px;
+
     display: flex;
     align-items: center;
 }
