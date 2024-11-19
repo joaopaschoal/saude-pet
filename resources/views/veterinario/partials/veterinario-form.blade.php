@@ -50,7 +50,7 @@
 
     <hr>
 
-    <a href="{{ route('veterinarios.index') }}" class="btn btn-secondary">
+    <a href="{{ route('veterinario.index') }}" class="btn btn-secondary">
         <span class="bi bi-arrow-left"></span> Voltar
     </a>
     <button type="submit" class="btn btn-success">

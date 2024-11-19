@@ -13,16 +13,16 @@
 
     <hr>
 
-    <a href="{{ route('pets.index') }}" class="btn btn-primary">
+    <a href="{{ route('pet.index') }}" class="btn btn-primary">
         <span class="bi bi-arrow-left"></span> Voltar
     </a>
-    <a href="{{ route('pets.edit', $pet->id) }}" class="btn btn-warning">
+    <a href="{{ route('pet.edit', $pet->id) }}" class="btn btn-warning">
         <span class="bi bi-pencil"></span> Editar
     </a>
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal{{ $pet->id }}">
         <span class="bi bi-trash"></span> Excluir
     </button>
-    <x-confirm-delete :model="$pet" route="pets.destroy" message="Tem certeza que deseja excluir este pet?" />
+    <x-confirm-delete :model="$pet" route="pet.destroy" message="Tem certeza que deseja excluir este pet?" />
 
 
 @endsection

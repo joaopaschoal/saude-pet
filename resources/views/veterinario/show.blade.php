@@ -13,16 +13,16 @@
     <p><strong>Especialidade:</strong> {{ $veterinario->especialidade }}</p>
     <hr>
 
-    <a href="{{ route('veterinarios.index') }}" class="btn btn-primary">
+    <a href="{{ route('veterinario.index') }}" class="btn btn-primary">
         <span class="bi bi-arrow-left"></span> Voltar
     </a>
-    <a href="{{ route('veterinarios.edit', $veterinario->id) }}" class="btn btn-warning">
+    <a href="{{ route('veterinario.edit', $veterinario->id) }}" class="btn btn-warning">
         <span class="bi bi-pencil"></span> Editar
     </a>
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal{{ $veterinario->id }}">
         <span class="bi bi-trash"></span> Excluir
     </button>
-    <x-confirm-delete :model="$veterinario" route="veterinarios.destroy" message="Tem certeza que deseja excluir este veterinario?" />
+    <x-confirm-delete :model="$veterinario" route="veterinario.destroy" message="Tem certeza que deseja excluir este veterinario?" />
 
 
 @endsection

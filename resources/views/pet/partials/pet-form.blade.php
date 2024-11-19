@@ -37,7 +37,7 @@
 
     <hr>
 
-    <a href="{{ route('pets.index') }}" class="btn btn-secondary">
+    <a href="{{ route('pet.index') }}" class="btn btn-secondary">
         <span class="bi bi-arrow-left"></span> Voltar
     </a>
     <button type="submit" class="btn btn-success">

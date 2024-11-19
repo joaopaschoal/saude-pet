@@ -4,8 +4,8 @@
 @section('header', 'Cadastrar Novo Pet')
 
 @section('content')
-  @include('pets.partials.pet-form', [
-    'action' => route('pets.store'),
+  @include('pet.partials.pet-form', [
+    'action' => route('pet.store'),
     'buttonText' => 'Salvar',
   ])
 @endsection

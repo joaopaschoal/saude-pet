@@ -4,8 +4,8 @@
 @section('header', 'Cadastrar Novo Veterinário')
 
 @section('content')
-  @include('veterinarios.partials.veterinario-form', [
-    'action' => route('veterinarios.store'),
+  @include('veterinario.partials.veterinario-form', [
+    'action' => route('veterinario.store'),
     'buttonText' => 'Salvar',
     'especialidadeList' => $especialidadeList,
   ])

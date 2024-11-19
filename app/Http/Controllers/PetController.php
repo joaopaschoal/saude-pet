@@ -12,8 +12,8 @@ class PetController extends Controller
      */
     public function index()
     {
-        $pets = Pet::paginate(10);
-        return view('pets.index', compact('pets'));
+        $petList = Pet::paginate(10);
+        return view('pet.index', compact('petList'));
     }
 
     /**
@@ -21,7 +21,7 @@ class PetController extends Controller
      */
     public function create()
     {
-        return view('pets.create');
+        return view('pet.create');
     }
 
     /**
@@ -30,7 +30,7 @@ class PetController extends Controller
     public function store(PetRequest $request)
     {
         Pet::create($request->validated());
-        return redirect()->route('pets.index')->with('toast', [
+        return redirect()->route('pet.index')->with('toast', [
             [
                 'message' => 'Pet cadastrado com sucesso.',
                 'type' => 'success'
@@ -43,7 +43,7 @@ class PetController extends Controller
      */
     public function show(Pet $pet)
     {
-        return view('pets.show', compact('pet'));
+        return view('pet.show', compact('pet'));
     }
 
     /**
@@ -51,7 +51,7 @@ class PetController extends Controller
      */
     public function edit(Pet $pet)
     {
-        return view('pets.edit', compact('pet'));
+        return view('pet.edit', compact('pet'));
     }
 
     /**
@@ -60,7 +60,7 @@ class PetController extends Controller
     public function update(PetRequest $request, Pet $pet)
     {
         $pet->update($request->validated());
-        return redirect()->route('pets.index')->with('toast', [
+        return redirect()->route('pet.index')->with('toast', [
             'message' => 'Pet atualizado com sucesso.',
             'type' => 'success'
         ]);
@@ -72,7 +72,7 @@ class PetController extends Controller
     public function destroy(Pet $pet)
     {
         $pet->delete();
-        return redirect()->route('pets.index')->with('toast', [
+        return redirect()->route('pet.index')->with('toast', [
             'message' => 'Pet excluído com sucesso.',
             'type' => 'success'
         ]);

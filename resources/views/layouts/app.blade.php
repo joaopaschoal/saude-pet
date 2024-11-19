@@ -24,13 +24,13 @@
                 <hr>
             </div>
             <nav class="nav flex-column">
-                <a class="nav-link" href="{{ route('pets.index') }}">
+                <a class="nav-link" href="{{ route('pet.index') }}">
                     <span class="icon">
                         @include('partials.svg.pet')
                     </span>
                     <span class="text">Pets</span>
                 </a>
-                <a class="nav-link" href="{{ route('veterinarios.index') }}">
+                <a class="nav-link" href="{{ route('veterinario.index') }}">
                     <span class="icon"><i class="bi bi-person-fill"></i></span>
                     <span class="text">Veterinários</span>
                 </a>

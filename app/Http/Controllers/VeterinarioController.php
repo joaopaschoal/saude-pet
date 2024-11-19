@@ -13,8 +13,8 @@ class VeterinarioController extends Controller
      */
     public function index()
     {
-        $veterinarios = Veterinario::paginate(10);
-        return view('veterinarios.index', compact('veterinarios'));
+        $veterinarioList = Veterinario::paginate(10);
+        return view('veterinario.index', compact('veterinarioList'));
     }
 
     /**
@@ -23,7 +23,7 @@ class VeterinarioController extends Controller
     public function create()
     {
         $especialidadeList = Especialidade::all();
-        return view('veterinarios.create', compact('especialidadeList'));
+        return view('veterinario.create', compact('especialidadeList'));
     }
 
     /**
@@ -32,7 +32,7 @@ class VeterinarioController extends Controller
     public function store(VeterinarioRequest $request)
     {
         Veterinario::create($request->validated());
-        return redirect()->route('veterinarios.index')->with('toast', [
+        return redirect()->route('veterinario.index')->with('toast', [
             [
                 'message' => 'Veterinario cadastrado com sucesso.',
                 'type' => 'success'
@@ -45,7 +45,7 @@ class VeterinarioController extends Controller
      */
     public function show(Veterinario $veterinario)
     {
-        return view('veterinarios.show', compact('veterinario'));
+        return view('veterinario.show', compact('veterinario'));
     }
 
     /**
@@ -54,7 +54,7 @@ class VeterinarioController extends Controller
     public function edit(Veterinario $veterinario)
     {
         $especialidadeList = Especialidade::all();
-        return view('veterinarios.edit', compact('veterinario', 'especialidadeList'));
+        return view('veterinario.edit', compact('veterinario', 'especialidadeList'));
     }
 
     /**
@@ -63,7 +63,7 @@ class VeterinarioController extends Controller
     public function update(VeterinarioRequest $request, Veterinario $veterinario)
     {
         $veterinario->update($request->validated());
-        return redirect()->route('veterinarios.index')->with('toast', [
+        return redirect()->route('veterinario.index')->with('toast', [
             'message' => 'Veterinario atualizado com sucesso.',
             'type' => 'success'
         ]);
@@ -75,7 +75,7 @@ class VeterinarioController extends Controller
     public function destroy(Veterinario $veterinario)
     {
         $veterinario->delete();
-        return redirect()->route('veterinarios.index')->with('toast', [
+        return redirect()->route('veterinario.index')->with('toast', [
             'message' => 'Veterinario excluído com sucesso.',
             'type' => 'success'
         ]);

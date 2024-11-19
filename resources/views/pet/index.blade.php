@@ -8,7 +8,7 @@
 @section('header', 'Pets Cadastrados')
 
 @section('content')
-    <a href="{{ route('pets.create') }}" class="btn btn-apptheme mb-3">
+    <a href="{{ route('pet.create') }}" class="btn btn-apptheme mb-3">
         <span class="bi bi-plus"></span>
         Cadastrar Pet
     </a>
@@ -24,23 +24,23 @@
             </tr>
         </thead>
         <tbody>
-            @forelse ($pets as $pet)
+            @forelse ($petList as $pet)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $pet->nome }}</td>
                     <td>{{ $pet->nascimento ? Carbon::parse($pet->nascimento)->format('d/m/Y') : '-' }}</td>
                     <td>{{ $pet->flg_castrado ? 'Sim' : 'Não' }}</td>
                     <td>
-                        <a href="{{ route('pets.show', $pet->id) }}" class="btn btn-sm btn-primary">
+                        <a href="{{ route('pet.show', $pet->id) }}" class="btn btn-sm btn-primary">
                             <span class="bi bi-eye"></span>
                         </a>
-                        <a href="{{ route('pets.edit', $pet->id) }}" class="btn btn-sm btn-warning">
+                        <a href="{{ route('pet.edit', $pet->id) }}" class="btn btn-sm btn-warning">
                             <span class="bi bi-pencil"></span>
                         </a>
                         <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal{{ $pet->id }}">
                             <span class="bi bi-trash"></span>
                         </button>
-                        <x-confirm-delete :model="$pet" route="pets.destroy" message="Tem certeza que deseja excluir este pet?" />
+                        <x-confirm-delete :model="$pet" route="pet.destroy" message="Tem certeza que deseja excluir este pet?" />
                     </td>
                 </tr>
             @empty
@@ -50,5 +50,5 @@
             @endforelse
         </tbody>
     </table>
-    {{ $pets->links() }}
+    {{ $petList->links() }}
 @endsection
